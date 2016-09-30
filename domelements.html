@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<style>
+#testDiv {
+    height: 250px;
+    width: 400px;
+    padding: 10px;
+    margin: 15px;
+    border-top: 15px solid black;
+    border-left: 10px solid red;
+    background-color: lightblue;
+}
+</style>
+<body>
+
+<div id="testDiv">
+<p id ="testp"> </p>
+<ul id="videoGames">
+<!--Step 1: Create a list of whatever you like-->
+  <li>Pokemon</li>
+  <li>Dragon Quest 7</li>
+</ul>
+</div>
+<!--Step 2: Create buttons-->
+
+<button onclick="anewGame()">Put something Before</button>
+
+<button onclick="aDeleteGame()">Delete something</button>
+
+<button onclick="aReplaceGame()">Replace something</button>
+
+<button onclick="aGetInfo()">Get Div Size</button>
+
+
+<script>
+//Step 3: Create a function that will put a new item on top of the list. This shows insert before and appending
+function anewGame() {
+    var newItem = document.createElement("LI");
+    var textnode = document.createTextNode("Yokai Watch");
+    newItem.appendChild(textnode);
+
+    var list = document.getElementById("videoGames");
+    list.insertBefore(newItem, list.childNodes[0]);
+}
+//step 4: Show how to delete a element
+function aDeleteGame() {
+    var list = document.getElementById("videoGames");
+    list.removeChild(list.childNodes[1])
+}
+//Replace an element
+function aReplaceGame() {
+	var textnode = document.createTextNode("Bye Money");
+    var list = document.getElementById("videoGames");
+    list.replaceChild(textnode, list.childNodes[0]);
+}
+
+function aGetInfo() {
+	var elmnt = document.getElementById("testDiv");
+    var txt = "Border top width: " + elmnt.clientTop + "px<br>";
+    txt += "Border left width: " + elmnt.clientLeft + "px";
+    document.getElementById("testp").innerHTML = txt;
+    }
+
+</script>
+
+
+
+</body>
+</html>
